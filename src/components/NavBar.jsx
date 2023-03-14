@@ -13,6 +13,7 @@ import { useSelector } from "react-redux";
 import axios from "axios";
 import jwt_decode from "jwt-decode";
 import "animate.css";
+import "../App.css";
 
 const Container = styled.div`
   width: 100%;
@@ -23,7 +24,7 @@ const Container = styled.div`
   background-color: white;
   display: grid;
   place-items: center;
-  ${mobile({ height: "50px" })}
+  ${mobile({ height: "50px", paddingTop: "1rem" })}
 `;
 
 const Wrapper = styled.div`
@@ -159,7 +160,6 @@ const NavBar = () => {
       navigate(`/search/${searchedValue}`);
     }
   }
-
   return (
     <Container className="animate__animated animate__fadeInRightBig">
       <Wrapper>
@@ -202,27 +202,7 @@ const NavBar = () => {
               style={{ position: "absolute", right: "0", top: "0" }}
               to={`/search/${searchedValue}`}
             >
-              <Search
-                style={{
-                  width: "50px",
-                  height: "29px",
-                  color: "#f9f9f8",
-                  fontSize: 28,
-                  cursor: "pointer",
-                  backgroundColor: "teal",
-                  position: "absolute",
-                  right: "0",
-                  ...(() => {
-                    if (window.innerWidth <= 601) {
-                      return {
-                        display: "none",
-                      };
-                    } else {
-                      return {};
-                    }
-                  })(),
-                }}
-              />
+              <Search id="search_icon" />
             </NavLink>
           </SearchContainer>
 

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link,useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./Login.css";
 import styled from "styled-components";
 import { publicRequest } from "../requestMethods";
@@ -100,8 +100,8 @@ const Login = () => {
         text: "Login successful",
         icon: "success",
       }).then(() => {
-        navigate("/");
         window.location.reload();
+        navigate("/");
       });
     } catch (error) {
       if (

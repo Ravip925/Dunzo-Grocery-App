@@ -14,7 +14,8 @@ const Container = styled.div`
   position: relative;
   z-index: 12;
   ${mobile({
-    height: "80px",
+    height: "auto",
+    padding: "0.8rem 1rem",
   })}
 `;
 const Wrapper = styled.div`
@@ -24,6 +25,9 @@ const Wrapper = styled.div`
   justify-content: flex-start;
   align-items: center;
   gap: 10px;
+  ${mobile({
+    gap: "15px",
+  })}
 `;
 const Left = styled.div`
   width: 60px;
@@ -36,6 +40,11 @@ const Right = styled.div`
     line-height: 28px;
     ${mobile({
       lineHeight: "20px",
+    })}
+  }
+  h5 {
+    ${mobile({
+      marginTop: "5px",
     })}
   }
 `;

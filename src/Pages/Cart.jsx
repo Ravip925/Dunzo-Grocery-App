@@ -195,7 +195,7 @@ const Button = styled.button`
   background: #ad5389;
   background: linear-gradient(0deg, #ff2222 0%, #fb7575 100%);
   border: none;
-  box-shadow: 0 0.7em 1.5em -0.5em #14a73e98;
+  box-shadow: 0 0.4em 1.5em -0.5em #ff1717;
   letter-spacing: 0.05em;
   border-radius: 20em;
   cursor: pointer;
@@ -245,7 +245,7 @@ const Cart = () => {
       image:
         "https://resources.dunzo.com/web-assets/prod/_next/static/images/logo-footer-9f5c4da498fff7fcbead38344d855d20.png",
       order_id: order.id,
-      callback_url: "https://dunzo-backend-api.vercel.app/api/checkout/paymentverification",
+      callback_url: "http://localhost:8000/api/checkout/paymentverification",
       prefill: {
         name: "Ravi Patil",
         email: "ravipatil@example.com",

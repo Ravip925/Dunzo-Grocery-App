@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { mobile } from "../Responsive";
+import "../App.css";
 
 const Container = styled.div`
   width: 100%;
@@ -121,18 +122,10 @@ const Footer = () => {
         <Hr />
         <Bottom>
           <Boxes
+            id="footer_icon"
             style={{
               width: "15%",
               padding: "1rem 0",
-              ...(() => {
-                if (window.innerWidth <= 480) {
-                  return {
-                    display: "none",
-                  };
-                } else {
-                  return {};
-                }
-              })(),
             }}
           >
             <Image url="https://resources.dunzo.com/web-assets/prod/_next/static/images/logo-footer-9f5c4da498fff7fcbead38344d855d20.png"></Image>

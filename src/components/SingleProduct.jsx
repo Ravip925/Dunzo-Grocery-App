@@ -1,7 +1,7 @@
 import { Add, Discount } from "@mui/icons-material";
 import { FormControl, MenuItem, Select } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect, useState } from "react";
+import { useEffect, useLayoutEffect, useState } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import styled from "styled-components";
 import { publicRequest } from "../requestMethods";
@@ -9,6 +9,7 @@ import CatBar from "./CatBar";
 import { addProduct, removeItem } from "../redux/cartRedux";
 import Swal from "sweetalert2";
 import "animate.css";
+import "../App.css";
 import { mobile } from "../Responsive";
 
 const Container = styled.div`
@@ -61,7 +62,7 @@ const Center = styled.div`
   position: relative;
   background-color: white;
   ${mobile({
-    width: "98%",
+    height: "100%",
   })}
 `;
 const Title = styled.h3`
@@ -93,8 +94,7 @@ const ProductsContainer = styled.div`
   }
 
   ${mobile({
-    height: "320px",
-    padding: "0 1rem",
+    padding: "0",
   })}
 `;
 const ProductBox = styled.div`
@@ -105,7 +105,6 @@ const ProductBox = styled.div`
   align-items: center;
   align-self: flex-start;
   margin-top: 15px;
-  position: relative;
 `;
 const Items = styled.div`
   flex: 1;
@@ -141,7 +140,17 @@ const Box = styled.div`
   justify-content: center;
   ${mobile({
     padding: "0",
+    marginTop: "2rem",
   })}
+
+  h3 {
+    ${mobile({
+      fontSize: "1rem",
+    })}
+    h2 {
+      ${mobile({})}
+    }
+  }
 `;
 
 const Button = styled.button`
@@ -180,7 +189,7 @@ const Button = styled.button`
     box-shadow: 0 0.3em 1em -0.5em #14a73e98;
   }
   ${mobile({
-    marginBottom: "1rem",
+    margin: "0",
   })}
 `;
 
@@ -221,6 +230,8 @@ const CartProduct = styled.div`
   align-items: center;
   ${mobile({
     borderBottom: "1px solid",
+    gap: "10px",
+    padding: "0.8rem 0.4rem",
   })}
 `;
 const CartProductImg = styled.div`
@@ -230,6 +241,10 @@ const CartProductImg = styled.div`
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+  ${mobile({
+    width: "80px",
+    height: "100px",
+  })}
 `;
 const Price = styled.div`
   flex: 0.5;
@@ -246,7 +261,10 @@ const ProductName = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   gap: 15px;
-
+  ${mobile({
+    fontSize: "0.8rem",
+    width: "120px",
+  })}
   h4 {
     color: #7c7c7c;
     font-family: "roboto";
@@ -275,6 +293,9 @@ const CheckOut = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  ${mobile({
+    width: "100%",
+  })}
 `;
 
 const SingleProduct = () => {
@@ -344,6 +365,10 @@ const SingleProduct = () => {
     dispatch(addProduct({ ...products, weightQuantity, productPrice }));
   };
 
+  useLayoutEffect(() => {
+    window.scrollTo(0, 0);
+  });
+
   return (
     <>
       <CatBar product={products} isProductPage={true} />
@@ -369,7 +394,11 @@ const SingleProduct = () => {
                 >
                   <Box style={{ marginTop: "2rem" }}>
                     <h3>{products.name}</h3>
-                    <FormControl size="small" sx={{ mt: 2, minWidth: 120 }}>
+                    <FormControl
+                      id="select1"
+                      size="small"
+                      sx={{ mt: 2, minWidth: 120 }}
+                    >
                       <Select
                         displayEmpty
                         value={weightQuantity ? weightQuantity : "select"}
@@ -441,6 +470,7 @@ const SingleProduct = () => {
                             background:
                               "linear-gradient(0deg,#ff2222 0%, #fb7575 100%)",
                             paddingLeft: "1.5rem",
+                            boxShadow: "0",
                           }}
                         >
                           Delete

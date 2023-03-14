@@ -80,7 +80,7 @@ const Center = styled.div`
   })};
 `;
 
-const Slider = ({ screenWidth }) => {
+const Slider = () => {
   const [slideIndex, setSlideIndex] = useState(0);
 
   useEffect(() => {
@@ -109,10 +109,10 @@ const Slider = ({ screenWidth }) => {
       </Arrow>
       <Wrapper slideIndex={slideIndex}>
         {sliderItems.map((item) => (
-          <NavLink to={`/products/${item.category}`}>
-            <Slide key={item.id}>
+          <NavLink key={item.id} to={`/products/${item.category}`}>
+            <Slide>
               <div className="slider_container">
-                <Center url={item.img} isScreenWidth={screenWidth}></Center>
+                <Center url={item.img}></Center>
               </div>
             </Slide>
           </NavLink>

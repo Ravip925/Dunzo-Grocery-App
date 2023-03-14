@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
-import "../App.css";
 import "animate.css";
 import { mobile } from "../Responsive";
 
@@ -40,6 +39,7 @@ const Center = styled.div`
   flex-wrap: wrap;
   ${mobile({
     width: "100%",
+    height: "250px",
     flexDirection: "column",
     flexWrap: "wrap",
     gap: "20px",
@@ -66,7 +66,8 @@ const Boxes = styled.div`
   background-size: cover;
   background-position: center;
   ${mobile({
-    width: "250px",
+    width: "158px",
+    height: "115px",
   })}
 `;
 

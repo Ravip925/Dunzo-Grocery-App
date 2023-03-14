@@ -24,9 +24,25 @@ a {
     background-color: transparent;
 }
 
-@media screen and (max-width:1030px) {
-    #catBoxes {
-        width: 200px;
-        height: 160px;
+
+#search_icon{
+    width: 50px;
+    height: 29px;
+    color: #f9f9f8;
+    font-size: 28px;
+    background-color: teal;
+    cursor: pointer;
+    position: absolute;
+    right: 0;
+}
+
+
+
+@media screen and (max-width:480px) {
+    #search_icon,#footer_icon{
+        display: none;
+    }
+    #select1{
+    margin-top: 30px;
     }
 }

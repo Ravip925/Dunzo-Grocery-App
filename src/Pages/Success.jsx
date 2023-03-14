@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import styled from "styled-components";
+import { mobile } from "../Responsive";
 
 const Container = styled.div`
   height: 100vh;
@@ -8,6 +9,7 @@ const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+
 `;
 const Box = styled.div`
   width: 30%;
@@ -17,6 +19,14 @@ const Box = styled.div`
   border-radius: 20px;
   background-color: #00aaff;
   text-align: center;
+  ${mobile({
+    width:'90%',
+    height:"180px",
+    display:"grid",
+    placeItems:"center",
+    padding:"1rem 0"
+
+  })}
 `;
 
 const Success = () => {

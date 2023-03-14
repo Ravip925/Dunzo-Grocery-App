@@ -115,6 +115,7 @@ const ProductBox = styled.div`
   }
   ${mobile({
     borderBottom: "1px solid",
+    height: "auto",
   })}
 `;
 const Items = styled.div`
@@ -193,6 +194,10 @@ const Button = styled.button`
   &:active {
     box-shadow: 0 0.3em 1em -0.5em #14a73e98;
   }
+
+  ${mobile({
+    marginRight: "1rem",
+  })}
 `;
 const SelectBox = styled.div`
   width: 100%;
@@ -252,6 +257,9 @@ const CartProduct = styled.div`
   justify-content: space-between;
   align-items: center;
   gap: 10px;
+  ${mobile({
+    borderBottom: "1px solid",
+  })}
 `;
 
 const ProductName = styled.div`
@@ -401,8 +409,8 @@ const Products = () => {
             </Title>
             <ProductsContainer>
               {filteredProducts.map((items) => (
-                <NavLink to={`/product/${items._id}`}>
-                  <ProductBox key={items._id}>
+                <NavLink key={items._id} to={`/product/${items._id}`}>
+                  <ProductBox>
                     <Items
                       style={{
                         display: "grid",
@@ -486,6 +494,7 @@ const Products = () => {
                             background:
                               "linear-gradient(0deg,#ff2222 0%, #fb7575 100%)",
                             paddingLeft: "1.5rem",
+                            boxShadow: "0",
                           }}
                         >
                           Delete
