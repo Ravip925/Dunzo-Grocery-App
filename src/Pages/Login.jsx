@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link,useNavigate } from "react-router-dom";
 import "./Login.css";
 import styled from "styled-components";
 import { publicRequest } from "../requestMethods";
@@ -82,6 +82,7 @@ const Right = styled.div`
 `;
 
 const Login = () => {
+  const navigate = useNavigate();
   const [data, setData] = useState({ email: "", password: "" });
   const [error, setError] = useState("");
 
@@ -99,6 +100,7 @@ const Login = () => {
         text: "Login successful",
         icon: "success",
       }).then(() => {
+        navigate("/");
         window.location.reload();
       });
     } catch (error) {
