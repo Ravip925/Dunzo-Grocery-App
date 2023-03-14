@@ -245,7 +245,7 @@ const Cart = () => {
       image:
         "https://resources.dunzo.com/web-assets/prod/_next/static/images/logo-footer-9f5c4da498fff7fcbead38344d855d20.png",
       order_id: order.id,
-      callback_url: "http://localhost:8000/api/checkout/paymentverification",
+      callback_url: "https://dunzo-backend-api.vercel.app/api/checkout/paymentverification",
       prefill: {
         name: "Ravi Patil",
         email: "ravipatil@example.com",
