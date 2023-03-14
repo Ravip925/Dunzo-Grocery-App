@@ -129,7 +129,7 @@ const NavBar = () => {
         async (position) => {
           try {
             const response = await axios.get(
-              `https://www.mapquestapi.com/geocoding/v1/reverse?key=${process.env.REACT_APP_API_KE}&location=${position.coords.latitude},${position.coords.longitude}`
+              `https://www.mapquestapi.com/geocoding/v1/reverse?key=${process.env.REACT_APP_API_KEY}&location=${position.coords.latitude},${position.coords.longitude}`
             );
             const city = response.data.results[0].locations[0].adminArea5; // Extract the city name from the geocoding result
             setLocation(city);
