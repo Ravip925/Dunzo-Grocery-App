@@ -213,7 +213,7 @@ const NavBar = () => {
                   position: "absolute",
                   right: "0",
                   ...(() => {
-                    if (window.innerWidth <= 480) {
+                    if (window.innerWidth <= 601) {
                       return {
                         display: "none",
                       };
