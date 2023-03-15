@@ -19,7 +19,6 @@ const Container = styled.div`
   );
   ${mobile({
     height: "40px",
-    marginTop:"0"
   })}
 `;
 const Wrapper = styled.div`

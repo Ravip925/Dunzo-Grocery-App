@@ -29,7 +29,6 @@ const Wrapper = styled.div`
   ${mobile({
     padding: "1rem",
     height: "auto",
-    marginTop:"0"
   })}
 `;
 const Title = styled.h1`
@@ -222,6 +221,16 @@ const SummaryButton = styled.button`
   font-weight: 600;
   cursor: pointer;
 `;
+
+const IsCartEmpty = styled.h1`
+  text-align: center;
+  font-size: 1.8rem;
+  color: #ff2929;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: bold;
+  ${mobile({ fontSize: "1.2rem" })}
+`;
+
 const key = process.env.REACT_APP_RAZORPAY_KEY;
 
 const Cart = () => {
@@ -281,7 +290,7 @@ const Cart = () => {
             </TopText>
           </TopTexts>
         </Top>
-        {/* {cart.quantity===0? <IsCartEmpty>YOUR CART IS EMPTY !!</IsCartEmpty>:null} */}
+        {cart.quantity===0? <IsCartEmpty>YOUR CART IS EMPTY !!</IsCartEmpty>:null}
         <Bottom>
           <CartProduct>
             <Info>

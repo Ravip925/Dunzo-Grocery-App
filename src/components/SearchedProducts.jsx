@@ -25,6 +25,7 @@ const Container = styled.div`
   ${mobile({
     padding: "0 1rem",
     height: "auto",
+
   })}
 `;
 const Wrapper = styled.div`
@@ -42,7 +43,6 @@ const Wrapper = styled.div`
     justifyContent: "center",
     alignItems: "center",
     padding: "5rem 0",
-    marginTop: "20px",
   })}
 
   h1 {
@@ -51,7 +51,7 @@ const Wrapper = styled.div`
     font-weight: 400;
     color: #8e8e8eae;
     ${mobile({
-      top: "0.8rem",
+      top: "1.5rem",
       fontSize: "1.5rem",
     })}
   }
@@ -112,10 +112,9 @@ const SearchedProducts = () => {
       <NavBar />
       <Container>
         <Wrapper>
+          <h1>Searched Products:</h1>
           {products.length !== 0 ? (
             products.map((items) => (
-              <>
-                <h1>Searched Products:</h1>
                 <Card
                   className="animate__animated animate__zoomInDown"
                   key={items._id}
@@ -206,7 +205,6 @@ const SearchedProducts = () => {
                     </Button>
                   </CardActions>
                 </Card>
-              </>
             ))
           ) : (
             <ProductsNotFound>

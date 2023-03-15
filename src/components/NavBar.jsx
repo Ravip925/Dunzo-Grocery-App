@@ -24,7 +24,7 @@ const Container = styled.div`
   background-color: white;
   display: grid;
   place-items: center;
-  ${mobile({ height: "70px",position:"static" })}
+  ${mobile({ height: "70px", })}
 `;
 
 const Wrapper = styled.div`
