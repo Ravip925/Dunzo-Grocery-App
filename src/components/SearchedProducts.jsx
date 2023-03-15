@@ -7,13 +7,13 @@ import {
   CardMedia,
   Typography,
 } from "@mui/material";
-import axios from "axios";
 import { useEffect, useState } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import styled from "styled-components";
 import NavBar from "./NavBar";
 import "animate.css";
 import { mobile } from "../Responsive";
+import { publicRequest } from "../requestMethods";
 
 const Container = styled.div`
   width: 100%;
@@ -42,6 +42,7 @@ const Wrapper = styled.div`
     justifyContent: "center",
     alignItems: "center",
     padding: "5rem 0",
+    marginTop: "20px",
   })}
 
   h1 {
@@ -50,7 +51,8 @@ const Wrapper = styled.div`
     font-weight: 400;
     color: #8e8e8eae;
     ${mobile({
-      top: "0.2rem",
+      top: "0.8rem",
+      fontSize: "1.5rem",
     })}
   }
 `;
@@ -95,8 +97,8 @@ const SearchedProducts = () => {
 
   useEffect(() => {
     if (search !== "") {
-      axios
-        .get(`http://localhost:8000/api/products/search/${search}`)
+      publicRequest
+        .get(`/products/search/${search}`)
         .then((response) => {
           setProducts(response.data);
         })
@@ -125,7 +127,7 @@ const SearchedProducts = () => {
                     paddingBottom: "1rem",
                     boxShadow: "18px 18px 20px rgba(0, 0, 0, 0.2)",
                     ...(() => {
-                      if (window.innerWidth <= 480) {
+                      if (window.innerWidth <= 600) {
                         return {
                           maxWidth: 300,
                           minWidth: 300,

@@ -63,6 +63,7 @@ const Center = styled.div`
   background-color: white;
   ${mobile({
     height: "100%",
+    width:"100%"
   })}
 `;
 const Title = styled.h3`
@@ -470,7 +471,7 @@ const SingleProduct = () => {
                             background:
                               "linear-gradient(0deg,#ff2222 0%, #fb7575 100%)",
                             paddingLeft: "1.5rem",
-                            boxShadow: "0",
+                            boxShadow: "0 0.4em 1.5em -0.5em #ff1717",
                           }}
                         >
                           Delete

@@ -29,6 +29,7 @@ const Wrapper = styled.div`
   ${mobile({
     padding: "1rem",
     height: "auto",
+    marginTop:"0"
   })}
 `;
 const Title = styled.h1`
