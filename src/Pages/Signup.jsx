@@ -22,6 +22,7 @@ const Container = styled.div`
     height: "100vh",
     padding: "20px",
     backgroundColor: "teal",
+    overflow:"hidden"
   })}
 `;
 const Wrapper = styled.div`
