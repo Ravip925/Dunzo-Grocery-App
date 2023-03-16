@@ -20,6 +20,7 @@ const Container = styled.div`
   background-color: aliceblue;
   ${mobile({
     padding: "0 1rem",
+    overflowX: "hidden",
   })}
 `;
 const Wrapper = styled.div`
@@ -79,7 +80,7 @@ const Center = styled.div`
   position: relative;
   background-color: white;
   ${mobile({
-    flex: "1",
+    width: "100%",
   })}
 `;
 const Title = styled.h3`
@@ -136,7 +137,16 @@ const Items = styled.div`
     right: 0;
     color: red;
     padding: 8px 5px 5px 25px;
+    ${mobile({
+      width: "105px",
+      fontSize: "0.7rem",
+      padding: "8px 5px 5px 20px",
+      height: "30px",
+    })}
   }
+  ${mobile({
+    width: "100px",
+  })}
 `;
 const ProductImage = styled.div`
   width: 150px;
@@ -158,6 +168,9 @@ const Box = styled.div`
   align-items: flex-start;
   justify-content: center;
   gap: 15px;
+  ${mobile({
+    flex: "0.5",
+  })}
 `;
 
 const Button = styled.button`
@@ -196,7 +209,10 @@ const Button = styled.button`
   }
 
   ${mobile({
-    marginRight: "1rem",
+    marginRight: "0.5rem",
+    width: "90px",
+    height: "35px",
+    padding: "0.7em 1.4em 0.7em 0.7em",
   })}
 `;
 const SelectBox = styled.div`
@@ -452,7 +468,19 @@ const Products = () => {
                       <p>
                         <b>{items.discount}% OFF</b>{" "}
                         <Discount
-                          style={{ position: "absolute", right: "10px" }}
+                          style={{
+                            position: "absolute",
+                            right: "10px",
+                            ...(() => {
+                              if (window.innerWidth <= 600) {
+                                return {
+                                  fontSize: "1rem",
+                                };
+                              } else {
+                                return {};
+                              }
+                            })(),
+                          }}
                         />
                       </p>
                       <Button>

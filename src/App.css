@@ -25,7 +25,7 @@ a {
 }
 
 
-#search_icon{
+#search_icon {
     width: 50px;
     height: 29px;
     color: #f9f9f8;
@@ -38,12 +38,16 @@ a {
 
 
 
-@media screen and (max-width:480px) {
-    #search_icon,#footer_icon{
+@media screen and (max-width:425px) {
+
+    #search_icon,
+    #footer_icon {
         display: none;
     }
-    #select1{
-    margin-top: 30px;
+
+    #select1 {
+        margin-top: 30px;
     }
-    
+
+
 }

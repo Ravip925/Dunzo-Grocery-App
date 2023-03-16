@@ -24,7 +24,7 @@ const Container = styled.div`
   background-color: white;
   display: grid;
   place-items: center;
-  ${mobile({ height: "70px",overflowX:"hidden"})}
+  ${mobile({ height: "70px", overflow: "hidden", position: "relative" })}
 `;
 
 const Wrapper = styled.div`
@@ -34,7 +34,7 @@ const Wrapper = styled.div`
   justify-content: space-between;
   align-items: center;
   align-content: center;
-  ${mobile({ padding: "0 1rem" })}
+  ${mobile({ padding: "0 1rem", height: "100%" })}
 `;
 const Left = styled.div`
   flex: 1;
@@ -47,6 +47,9 @@ const Left = styled.div`
       display: "none",
     })}
   }
+  ${mobile({
+    flex: "0.4",
+  })}
 `;
 const Input = styled.input`
   border: none;
@@ -94,7 +97,7 @@ const Right = styled.div`
   flex-direction: row;
   justify-content: flex-end;
 
-  ${mobile({ flex: 3, justifyContent: "flex-end", gap: "8px" })}
+  ${mobile({ flex: "1", justifyContent: "flex-end", gap: "8px" })}
 
   h3 {
     ${mobile({

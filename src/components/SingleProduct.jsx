@@ -21,6 +21,7 @@ const Container = styled.div`
   background-color: #dcffc3;
   ${mobile({
     padding: "0 1rem",
+    overflowX: "hidden",
   })}
 `;
 const Wrapper = styled.div`
@@ -63,7 +64,7 @@ const Center = styled.div`
   background-color: white;
   ${mobile({
     height: "100%",
-    width:"100%"
+    width: "100%",
   })}
 `;
 const Title = styled.h3`

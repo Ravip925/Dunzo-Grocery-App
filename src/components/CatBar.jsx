@@ -16,6 +16,8 @@ const Container = styled.div`
   ${mobile({
     height: "auto",
     padding: "0.8rem 1rem",
+    marginTop: "0",
+    overflowX: "hidden",
   })}
 `;
 const Wrapper = styled.div`

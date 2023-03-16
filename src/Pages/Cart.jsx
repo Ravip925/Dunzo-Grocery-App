@@ -18,6 +18,7 @@ const Container = styled.div`
   ${mobile({
     width: "100%",
     height: "auto",
+    overflowX: "hidden",
   })}
 `;
 const Wrapper = styled.div`
@@ -29,6 +30,7 @@ const Wrapper = styled.div`
   ${mobile({
     padding: "1rem",
     height: "auto",
+    marginTop: "0",
   })}
 `;
 const Title = styled.h1`
@@ -255,7 +257,8 @@ const Cart = () => {
       image:
         "https://resources.dunzo.com/web-assets/prod/_next/static/images/logo-footer-9f5c4da498fff7fcbead38344d855d20.png",
       order_id: order.id,
-      callback_url: "https://dunzo-backend-api.vercel.app/api/checkout/paymentverification",
+      callback_url:
+        "https://dunzo-backend-api.vercel.app/api/checkout/paymentverification",
       prefill: {
         name: "Ravi Patil",
         email: "ravipatil@example.com",
@@ -290,7 +293,9 @@ const Cart = () => {
             </TopText>
           </TopTexts>
         </Top>
-        {cart.quantity===0? <IsCartEmpty>YOUR CART IS EMPTY !!</IsCartEmpty>:null}
+        {cart.quantity === 0 ? (
+          <IsCartEmpty>YOUR CART IS EMPTY !!</IsCartEmpty>
+        ) : null}
         <Bottom>
           <CartProduct>
             <Info>

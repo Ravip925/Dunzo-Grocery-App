@@ -11,6 +11,7 @@ const Container = styled.div`
   place-items: center;
   ${mobile({
     height: "auto",
+    overflowX: "hidden",
   })}
 `;
 const Wrapper = styled.div`

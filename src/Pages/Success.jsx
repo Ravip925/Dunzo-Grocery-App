@@ -9,7 +9,6 @@ const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-
 `;
 const Box = styled.div`
   width: 30%;
@@ -20,12 +19,11 @@ const Box = styled.div`
   background-color: #00aaff;
   text-align: center;
   ${mobile({
-    width:'90%',
-    height:"180px",
-    display:"grid",
-    placeItems:"center",
-    padding:"1rem 0"
-
+    width: "90%",
+    height: "180px",
+    display: "grid",
+    placeItems: "center",
+    padding: "1rem 0",
   })}
 `;
 

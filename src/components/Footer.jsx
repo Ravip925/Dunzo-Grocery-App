@@ -13,6 +13,7 @@ const Container = styled.div`
   ${mobile({
     padding: "0 1rem",
     height: "auto",
+    overflowX: "hidden",
   })}
 `;
 const Wrapper = styled.div`
@@ -46,7 +47,7 @@ const Bottom = styled.div`
   padding-top: 2rem;
   ${mobile({
     flexDirection: "column",
-    paddingTop: "0rem",
+    padding: "0rem",
   })}
 `;
 const Title = styled.h5`
@@ -72,7 +73,7 @@ const Boxes = styled.div`
       display: "flex",
       flexWrap: "wrap",
       gap: "15px",
-      padding: "0",
+      padding: "0rem",
     })}
   }
   p {

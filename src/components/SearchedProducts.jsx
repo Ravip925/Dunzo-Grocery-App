@@ -25,7 +25,6 @@ const Container = styled.div`
   ${mobile({
     padding: "0 1rem",
     height: "auto",
-
   })}
 `;
 const Wrapper = styled.div`
@@ -92,6 +91,7 @@ const Image = styled.div`
 `;
 const SearchedProducts = () => {
   const location = useLocation();
+  const [err, setErr] = useState("");
   const [products, setProducts] = useState([]);
   const search = location.pathname.split("/")[2];
 
@@ -102,8 +102,8 @@ const SearchedProducts = () => {
         .then((response) => {
           setProducts(response.data);
         })
-        .catch((error) => {
-          console.log(error);
+        .catch((err) => {
+          setErr(err.response.data.error);
         });
     }
   }, [search]);
@@ -113,98 +113,98 @@ const SearchedProducts = () => {
       <Container>
         <Wrapper>
           <h1>Searched Products:</h1>
-          {products.length !== 0 ? (
+          {err === "" ? (
             products.map((items) => (
-                <Card
-                  className="animate__animated animate__zoomInDown"
-                  key={items._id}
-                  sx={{
-                    minWidth: 260,
-                    maxWidth: 260,
-                    borderRadius: 2,
-                    position: "relative",
-                    paddingBottom: "1rem",
-                    boxShadow: "18px 18px 20px rgba(0, 0, 0, 0.2)",
-                    ...(() => {
-                      if (window.innerWidth <= 600) {
-                        return {
-                          maxWidth: 300,
-                          minWidth: 300,
-                        };
-                      } else {
-                        return {};
-                      }
-                    })(),
-                  }}
-                >
-                  <Discounts>
-                    <b>{items.discount}% OFF</b>{" "}
-                    <Discount
-                      style={{
-                        fontSize: "0.95rem",
-                        position: "absolute",
-                        right: "10px",
-                      }}
-                    />
-                  </Discounts>
-                  <CardMedia
-                    component="img"
-                    alt="green iguana"
-                    height="140"
-                    sx={{ backgroundSize: "cover" }}
-                    image={items.img}
+              <Card
+                className="animate__animated animate__zoomInDown"
+                key={items._id}
+                sx={{
+                  minWidth: 260,
+                  maxWidth: 260,
+                  borderRadius: 2,
+                  position: "relative",
+                  paddingBottom: "1rem",
+                  boxShadow: "18px 18px 20px rgba(0, 0, 0, 0.2)",
+                  ...(() => {
+                    if (window.innerWidth <= 600) {
+                      return {
+                        maxWidth: 300,
+                        minWidth: 300,
+                      };
+                    } else {
+                      return {};
+                    }
+                  })(),
+                }}
+              >
+                <Discounts>
+                  <b>{items.discount}% OFF</b>{" "}
+                  <Discount
+                    style={{
+                      fontSize: "0.95rem",
+                      position: "absolute",
+                      right: "10px",
+                    }}
                   />
-                  <CardContent>
-                    <Typography
+                </Discounts>
+                <CardMedia
+                  component="img"
+                  alt="green iguana"
+                  height="140"
+                  sx={{ backgroundSize: "cover" }}
+                  image={items.img}
+                />
+                <CardContent>
+                  <Typography
+                    sx={{
+                      fontFamily: "Montserrat",
+                      fontWeight: "600",
+                      fontSize: "1.1rem",
+                      lineHeight: "28px",
+                      textOverflow: "ellipsis",
+                    }}
+                    gutterBottom
+                    variant="h6"
+                    component="div"
+                  >
+                    {items.name.substring(0, 42)}
+                    <span style={{ color: "#4a4a4a", fontSize: "0.8rem" }}>
+                      ...
+                    </span>
+                  </Typography>
+                  <Typography
+                    sx={{ fontFamily: "Montserrat", fontWeight: "500" }}
+                    variant="body2"
+                    color="text.secondary"
+                  >
+                    {items.category}
+                  </Typography>
+                </CardContent>
+                <CardActions>
+                  <NavLink to={`/product/${items._id}`}>
+                    <Button
                       sx={{
-                        fontFamily: "Montserrat",
-                        fontWeight: "600",
-                        fontSize: "1.1rem",
-                        lineHeight: "28px",
-                        textOverflow: "ellipsis",
+                        width: "85px",
+                        color: "white",
+                        backgroundColor: "#52ff42",
+                        borderRadius: "30px",
+                        "&.MuiButtonBase-root:hover": {
+                          bgcolor: "#6afe5d",
+                        },
                       }}
-                      gutterBottom
-                      variant="h6"
-                      component="div"
+                      size="small"
                     >
-                      {items.name.substring(0, 42)}
-                      <span style={{ color: "#4a4a4a", fontSize: "0.8rem" }}>
-                        ...
-                      </span>
-                    </Typography>
-                    <Typography
-                      sx={{ fontFamily: "Montserrat", fontWeight: "500" }}
-                      variant="body2"
-                      color="text.secondary"
-                    >
-                      {items.category}
-                    </Typography>
-                  </CardContent>
-                  <CardActions>
-                    <NavLink to={`/product/${items._id}`}>
-                      <Button
-                        sx={{
-                          width: "85px",
-                          color: "white",
-                          backgroundColor: "#52ff42",
-                          borderRadius: "30px",
-                          "&.MuiButtonBase-root:hover": {
-                            bgcolor: "#6afe5d",
-                          },
-                        }}
-                        size="small"
-                      >
-                        Explore
-                      </Button>
-                    </NavLink>
-                    <Button sx={{ cursor: "auto" }} size="small">
-                      ₹ {items.price}
+                      Explore
                     </Button>
-                    <Button sx={{ color: "gray", cursor: "auto" }} size="small">
-                      {items.quantity[0]}
-                    </Button>
-                  </CardActions>
-                </Card>
+                  </NavLink>
+                  <Button sx={{ cursor: "auto" }} size="small">
+                    ₹ {items.price}
+                  </Button>
+                  <Button sx={{ color: "gray", cursor: "auto" }} size="small">
+                    {items.quantity[0]}
+                  </Button>
+                </CardActions>
+              </Card>
             ))
           ) : (
             <ProductsNotFound>

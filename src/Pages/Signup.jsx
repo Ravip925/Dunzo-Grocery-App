@@ -19,10 +19,11 @@ const Container = styled.div`
   justify-content: center;
   transition: 0.3s ease-in;
   ${mobile({
-    height: "100vh",
+    height: "680px",
+    width: "100%",
     padding: "20px",
     backgroundColor: "teal",
-    overflow:"hidden"
+    overflow: "hidden",
   })}
 `;
 const Wrapper = styled.div`
