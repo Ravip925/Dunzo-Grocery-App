@@ -42,6 +42,7 @@ const Wrapper = styled.div`
     justifyContent: "center",
     alignItems: "center",
     padding: "5rem 0",
+    marginTop: "0",
   })}
 
   h1 {
