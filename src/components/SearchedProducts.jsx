@@ -101,6 +101,7 @@ const SearchedProducts = () => {
       publicRequest
         .get(`/products/search/${search}`)
         .then((response) => {
+          setErr("");
           setProducts(response.data);
         })
         .catch((err) => {
