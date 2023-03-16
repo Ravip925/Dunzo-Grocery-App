@@ -1,7 +1,7 @@
 import axios from "axios";
 
-//const BASE_URL = "https://dunzo-backend-api.vercel.app/api/";
-const BASE_URL = "http://localhost:8000/api/";
+const BASE_URL = "https://dunzo-backend-api.vercel.app/api/";
+//const BASE_URL = "http://localhost:8000/api/";
 
 
 const token = localStorage.getItem("token");
